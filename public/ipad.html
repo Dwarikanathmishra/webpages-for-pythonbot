@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ipad</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  </head>
+  <body>
+    <header>
+      <div class ="main">
+        <ul>
+          <li><a href="index.html">Laptop</a></li>
+          <li><a href="JBL.html">Earphones</a></li>
+          <li><a href="headphones.html">Headphones</a></li>
+          <li><a href="ipad.html">I Pad</a></li>
+        </ul>
+       </div>
+
+       <!-- copied text -->
+       <div class="wrapper">
+           <div class="left">
+               <img src="https://firebasestorage.googleapis.com/v0/b/shopicity-4d122.appspot.com/o/IPad.jpg?alt=media&token=1aa8eaf4-a48c-4f78-b6a3-6ca46fdbe39a"
+               alt="Product" width="220" >
+
+
+           <div class="btn">
+             <p><h2>Price:</h2><h2 id="Price">85000</h2></p>
+           </div>
+         </div>
+
+
+           <div class="right">
+               <div class="info">
+                   <h3 id = "productName">I Pad Pro</h3>
+              </div>
+
+
+           <div class="specifications">
+             <ul>
+
+               <li>11-inch edge-to-edge Liquid Retina display with ProMotion, True Tone, and wide color</li>
+               <li>A12X Bionic chip with Neural Engine</li>
+               <li>12-megapixel back camera, 7-megapixel TrueDepth front camera</li>
+               <li>Four speaker audio with wider stereo sound</li>
+               <li>USB-C connector for charging and accessories</li>
+
+             </ul>
+           </div>
+         </div>
+      </div>
+       <!-- end of copied text -->
+
+    </header>
+  </body>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script>
+      var database = firebase.firestore().collection("products").doc("ipad");
+      database.onSnapshot(function(doc) {
+        console.log("Current Price: ", doc.data().price);
+        console.log("Current Product Name",doc.data().productName);
+        $("#price").html(doc.data().price);
+        $("#productName").html(doc.data().productName)
+    });
+  </script>
+</html>

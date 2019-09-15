@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bose Headphones</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <header>
+      <div class ="main">
+        <ul>
+          <li><a href="index.html">Laptop</a></li>
+          <li><a href="JBL.html">Earphones</a></li>
+          <li><a href="headphones.html">Headphones</a></li>
+          <li><a href="ipad.html">I Pad</a></li>
+        </ul>
+       </div>
+
+       <!-- copied text -->
+       <div class="wrapper">
+           <div class="left">
+               <img src="https://firebasestorage.googleapis.com/v0/b/shopicity-4d122.appspot.com/o/BoseHeadphones.jpg?alt=media&token=bae8997b-0fa2-4e3e-aed9-f2db92d52416"
+               alt="Product" width="220" >
+
+
+           <div class="btn">
+             <p><h2>Price:</h2><h2 id = "Price">28500</h2></p>
+           </div>
+         </div>
+
+
+           <div class="right">
+               <div class="info">
+                   <h3 id = "productName">Bose Noise Cancelling Wireless Headphones 700</h3>
+              </div>
+
+
+           <div class="specifications">
+             <ul>
+
+               <li>Confidently take a call or speak to Alexa in any environment, with an unrivaled adaptive four-microphone system that isolates your voice from surrounding noise</li>
+               <li>Personalize your environment with 11 levels of noise cancelling: control distractions or let ambient sound in</li>
+               <li>Listen comfortably for hours : a streamlined, lightweight stainless-steel headband and angled ear cups make for a perfect fit</li>
+               <li>Get up to 20 hours of wireless battery life and time based power information</li>
+               <li>Stay connected to the world without reaching for your phone. Intuitive touch controls on the ear cups keep everything simple</li>
+
+             </ul>
+           </div>
+         </div>
+      </div>
+       <!-- end of copied text -->
+
+    </header>
+  </body>
+    <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script>
+      var database = firebase.firestore().collection("products").doc("ipad");
+      database.onSnapshot(function(doc) {
+        console.log("Current Price: ", doc.data().price);
+        console.log("Current Product Name",doc.data().productName);
+        $("#price").html(doc.data().price);
+        $("#productName").html(doc.data().productName)
+    });
+  </script>
+</html>

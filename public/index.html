@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<Html>
+  <head>
+     <title>
+      Laptop
+     </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>            
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+
+  <body>
+
+    <header>
+      <div class ="main">
+        <ul>
+          <li><a href="index.html">Laptop</a></li>
+          <li><a href="JBL.html">Earphones</a></li>
+          <li><a href="headphones.html">Headphones</a></li>
+          <li><a href="ipad.html">I Pad</a></li>
+        </ul>
+       </div>
+
+       <!-- copied text -->
+       <div class="wrapper">
+           <div class="left">
+               <img src="https://firebasestorage.googleapis.com/v0/b/shopicity-4d122.appspot.com/o/predator-helios-1660ti.jpg?alt=media&token=8ef46a25-aca3-483a-9b65-b2805723bcf0"
+               alt="Product" width="220" >
+
+
+           <div class="btn">
+             <p><h2>Price:</h2><h2 id="price">76000</h2></p>
+           </div>
+         </div>
+
+
+           <div class="right">
+               <div class="info">
+                  <h3 id = "productName">Acer Predator Helios 300</h3>
+              </div>
+
+
+           <div class="specifications">
+             <ul>
+
+               <li>9th Generation Intel Core i7 9750H 6 Core Processor (Up to 4.5GHz) with Windows 10 Home 64 Bit</li>
+               <li>NVIDIA GeForce GTX 1660 Ti Graphics with 6GB of dedicated GDDR6 VRAM</li>
+               <li>15.6 inches Full HD (1920 x 1080) Widescreen LED backlit IPS Display (144Hz Refresh Rate, 3ms Overdrive Response Time, 300nit Brightness and 72 percentage NTSC)</li>
+               <li>16GB DDR4 2666MHz Memory, 256GB PCIe NVMe SSD (2 x PCIe M.2 Slots; 1 Slot Open for Easy Upgrades) and 1 Available Hard Drive Bay</li>
+               <li>Backlit Keyboard; LAN: Killer Ethernet E2500 10/100/1000 Gigabit Ethernet LAN; Wireless: Killer DoubleShot Pro Wireless AC 1550 802. 11ac; 4th Gen All Metal AeroBlade 3D Fan</li>
+
+             </ul>
+           </div>
+         </div>
+      </div>
+       <!-- end of copied text -->
+
+    </header>
+
+
+  </body>
+  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script>
+      var database = firebase.firestore().collection("products").doc("laptop");
+      database.onSnapshot(function(doc) {
+        console.log("Current Price: ", doc.data().price);
+        console.log("Current Product Name",doc.data().productName);
+        $("#price").html(doc.data().price);
+        $("#productName").html(doc.data().productName)
+    });
+  </script>
+</Html>
