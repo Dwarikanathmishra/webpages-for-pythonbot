@@ -24,8 +24,7 @@
        <!-- copied text -->
        <div class="wrapper">
            <div class="left">
-               <img src="https://firebasestorage.googleapis.com/v0/b/shopicity-4d122.appspot.com/o/predator-helios-1660ti.jpg?alt=media&token=8ef46a25-aca3-483a-9b65-b2805723bcf0"
-               alt="Product" width="220" >
+               <img id ="image" src="" alt="Product" width="220" >
 
 
            <div class="btn">
@@ -69,6 +68,7 @@
         console.log("Current Product Name",doc.data().productName);
         $("#price").html(doc.data().price);
         $("#productName").html(doc.data().productName)
+        $("#image").attr("src",doc.data().image)
     });
   </script>
 </Html>

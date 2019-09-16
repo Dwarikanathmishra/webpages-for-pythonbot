@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Bose Headphones</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>            
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
   <body>
@@ -19,12 +21,10 @@
        <!-- copied text -->
        <div class="wrapper">
            <div class="left">
-               <img src="https://firebasestorage.googleapis.com/v0/b/shopicity-4d122.appspot.com/o/BoseHeadphones.jpg?alt=media&token=bae8997b-0fa2-4e3e-aed9-f2db92d52416"
-               alt="Product" width="220" >
-
+               <img id ="image" src="" alt="Product" width="220" >
 
            <div class="btn">
-             <p><h2>Price:</h2><h2 id = "Price">28500</h2></p>
+             <p><h2>Price:</h2><h2 id = "price">2800</h2></p>
            </div>
          </div>
 
@@ -56,12 +56,13 @@
  <script src="https://www.gstatic.com/firebasejs/6.6.1/firebase-firestore.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script>
-      var database = firebase.firestore().collection("products").doc("ipad");
+      var database = firebase.firestore().collection("products").doc("headphones");
       database.onSnapshot(function(doc) {
         console.log("Current Price: ", doc.data().price);
         console.log("Current Product Name",doc.data().productName);
         $("#price").html(doc.data().price);
         $("#productName").html(doc.data().productName)
+        $("#image").attr("src",doc.data().image)
     });
   </script>
 </html>
