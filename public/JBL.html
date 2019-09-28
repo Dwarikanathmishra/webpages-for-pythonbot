@@ -23,14 +23,10 @@
        <div class="wrapper">
            <div class="left">
                <img id ="image" src="" alt="Product" width="220" >
-
-
            <div class="btn">
-             <p><h2>Price:</h2><h2 id="price">650</h2></p>
+             <p><h2>Price:</h2><h2 id="price">₹650</h2></p>
            </div>
          </div>
-
-
            <div class="right">
                <div class="info">
                    <h3 id = "productName">Jbl C100si</h3>
@@ -63,7 +59,7 @@
       database.onSnapshot(function(doc) {
         console.log("Current Price: ", doc.data().price);
         console.log("Current Product Name",doc.data().productName);
-        $("#price").html(doc.data().price);
+       // $("#price").html(doc.data().price);
         $("#productName").html(doc.data().productName)
         $("#image").attr("src",doc.data().image)
     });
